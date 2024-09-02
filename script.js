@@ -6,17 +6,16 @@ function createParticle() {
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
     const x = Math.random() * window.innerWidth;
-    const y = Math.random() * window.innerHeight;
+    const y = -20; // Başlangıçta ekranın dışında 
     particle.style.left = `${x}px`;
     particle.style.top = `${y}px`;
 
     document.body.appendChild(particle);
 
     // Rastgele animasyon süresi ve yönü
-    const duration = Math.random() * 10 + 5;
-    const directionX = Math.random() > 0.5 ? 1 : -1;
-    const directionY = Math.random() > 0.5 ? 1 : -1;
+    const duration = Math.random() * 10 + 5; 
 
+    // Animasyon için style ekleme
     particle.style.animation = `moveParticle ${duration}s linear infinite`;
 
     setTimeout(() => {
