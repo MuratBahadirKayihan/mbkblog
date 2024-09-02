@@ -79,6 +79,12 @@ footer p {
     font-size: 0.8em;
 }
 
+/* ...diğer stiller */
+
+footer {
+    /* ...diğer stiller */
+    z-index: 2;  /* Kum efektinden daha yüksek */
+}
 /* Kum efekti stilleri */
 .particle {
     position: absolute;
