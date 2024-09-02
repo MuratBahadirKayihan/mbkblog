@@ -82,8 +82,14 @@ footer p {
 /* ...diğer stiller */
 
 footer {
-    /* ...diğer stiller */
-    z-index: 2;  /* Kum efektinden daha yüksek */
+    position: sticky;
+    bottom: 0; /* Sayfanın altına yapışmasını sağlar */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    z-index: 1; 
 }
 /* Kum efekti stilleri */
 .particle {
