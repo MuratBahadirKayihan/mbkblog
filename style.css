@@ -86,3 +86,16 @@ footer p {
     background-color: #eee;
     opacity: 0.5;
 }
+/* ...diğer stiller */
+
+@keyframes moveParticle {
+    0% {
+        transform: translateY(0) translateX(0); 
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(50px); /* Dikey ve yatay hareket */
+        opacity: 0; 
+    }
+}
+
