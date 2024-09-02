@@ -1,0 +1,88 @@
+body {
+    background-color: #121212;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #0f0, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: color-change 3s linear infinite alternate;
+}
+
+@keyframes color-change {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 0%;
+    }
+}
+
+p {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /* Kum efekti altında kalmaması için */
+}
+
+.loading {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #0f0;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    z-index: 1; 
+}
+
+footer p {
+    color: #0f0;
+    font-size: 0.8em;
+}
+
+/* Kum efekti stilleri */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #eee;
+    opacity: 0.5;
+}
