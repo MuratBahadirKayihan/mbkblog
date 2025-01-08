@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Murat Bahadır KAYIHAN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .gradient-border {
+            position: relative;
+            border-radius: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            animation: neonFlicker 2s infinite;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Kıvılcım efekti için */
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #0ff;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 4px #0ff,
+                0 0 8px #0ff,
+                0 0 12px #f0f;
+            opacity: 0;
+            filter: blur(1px);
+            transform: translateX(-50%);
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-50%) scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        .contact-card {
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-card:hover {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+        }
+
+        .submit-button {
+            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        /* Arka plan için gradient */
+        body {
+            background: linear-gradient(to bottom right, #000000, #1a1a1a);
+            min-height: 100vh;
+        }
+
+        /* Sayfa içeriği için hafif bir glow efekti */
+        .container {
+            position: relative;
+        }
+        .container::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Sosyal medya ikonları için hover efekti */
+        .social-icon {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .social-icon:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 0.9;
+                box-shadow: 
+                    0 0 5px #0ff,
+                    0 0 10px #0ff,
+                    0 0 20px #f0f;
+            }
+            20%, 22%, 24%, 55% {
+                opacity: 0.5;
+                box-shadow: none;
+            }
+        }
+
+        /* Navbar için yeni stiller */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Fare animasyonu için stiller */
+        .cursor-fx {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            mix-blend-mode: screen;
+            animation: cursorFx 25s infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes cursorFx {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(3);
+            }
+        }
+
+        .logo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+        }
+
+        /* Gradient metin için yeni sınıf */
+        .gradient-text {
+            background: linear-gradient(to right, #0ff, #f0f, #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Fare efekti için div -->
+    <div class="cursor-fx"></div>
+
+    <!-- Yeni Navigasyon -->
+    <nav class="fixed w-full bg-black bg-opacity-70 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="logo-text font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 hover:opacity-80 transition-opacity">M. B. KAYIHAN</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Hakkımda</a>
+                    <a href="skills.html" class="nav-link">Yetenekler</a>
+                    <a href="projects.html" class="nav-link">Projeler</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="#" class="nav-link active">İletişim</a>
+                </div>
+                <button class="md:hidden" id="menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobil Menü -->
+    <div class="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-lg z-40 hidden" id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="text-xl hover:text-cyan-400 transition-colors">Hakkımda</a>
+            <a href="skills.html" class="text-xl hover:text-cyan-400 transition-colors">Yetenekler</a>
+            <a href="projects.html" class="text-xl hover:text-cyan-400 transition-colors">Projeler</a>
+            <a href="blog.html" class="text-xl hover:text-cyan-400 transition-colors">Blog</a>
+            <a href="#" class="text-xl text-cyan-400">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main class="pt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col items-center justify-center">
+                <h1 class="text-4xl font-bold mb-12 gradient-text">
+                    İletişime Geç
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- İletişim Bilgileri -->
+                <div class="gradient-border">
+                    <div class="contact-card rounded-lg p-6">
+                        <h2 class="text-2xl font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
+                            İletişim Bilgileri
+                        </h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-envelope text-cyan-400"></i>
+                                <a href="mailto:info@example.com" class="text-gray-300 hover:text-cyan-400 transition-colors">
+                                    info@example.com
+                                </a>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-phone text-cyan-400"></i>
+                                <a href="tel:+901234567890" class="text-gray-300 hover:text-cyan-400 transition-colors">
+                                    +90 123 456 7890
+                                </a>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                                <span class="text-gray-300">
+                                    İstanbul, Türkiye
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Sosyal Medya -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500">
+                                Sosyal Medya
+                            </h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="social-icon text-2xl text-cyan-400 hover:text-fuchsia-500">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon text-2xl text-cyan-400 hover:text-fuchsia-500">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-icon text-2xl text-cyan-400 hover:text-fuchsia-500">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon text-2xl text-cyan-400 hover:text-fuchsia-500">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- İletişim Formu -->
+                <div class="gradient-border">
+                    <div class="contact-card rounded-lg p-6">
+                        <h2 class="text-2xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500">
+                            Mesaj Gönder
+                        </h2>
+                        <form class="contact-form space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-300 mb-2">Ad Soyad</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-2 rounded-lg text-gray-300">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 mb-2">E-posta</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-2 rounded-lg text-gray-300">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-300 mb-2">Mesaj</label>
+                                <textarea id="message" name="message" rows="4" required
+                                    class="w-full px-4 py-2 rounded-lg text-gray-300"></textarea>
+                            </div>
+                            <button type="submit" class="submit-button w-full py-2 px-4 rounded-lg text-white font-semibold">
+                                Gönder
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+
+    <!-- Fare animasyonu için JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.querySelector('.cursor-fx');
+            let cursorInterval;
+
+            // Fare hareketi
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Periyodik animasyon
+            function startCursorAnimation() {
+                cursorInterval = setInterval(() => {
+                    cursor.style.animation = 'none';
+                    cursor.offsetHeight; // Reflow
+                    cursor.style.animation = 'cursorFx 2s ease-in-out';
+                }, 30000); // Her 30 saniyede bir
+            }
+
+            startCursorAnimation();
+        });
+    </script>
+</body>
+</html> 

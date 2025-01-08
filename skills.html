@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yetenekler | Murat Bahadır KAYIHAN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .gradient-border {
+            position: relative;
+            border-radius: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            animation: neonFlicker 2s infinite;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Kıvılcım efekti için */
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #0ff;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 4px #0ff,
+                0 0 8px #0ff,
+                0 0 12px #f0f;
+            opacity: 0;
+            filter: blur(1px);
+            transform: translateX(-50%);
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 0.9;
+                box-shadow: 
+                    0 0 5px #0ff,
+                    0 0 10px #0ff,
+                    0 0 20px #f0f;
+            }
+            20%, 22%, 24%, 55% {
+                opacity: 0.5;
+                box-shadow: none;
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-50%) scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        .skill-card {
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Arka plan için gradient */
+        body {
+            background: linear-gradient(to bottom right, #000000, #1a1a1a);
+            min-height: 100vh;
+        }
+
+        /* Sayfa içeriği için hafif bir glow efekti */
+        .container {
+            position: relative;
+        }
+        .container::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navbar için yeni stiller */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Fare animasyonu için stiller */
+        .cursor-fx {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            mix-blend-mode: screen;
+            animation: cursorFx 25s infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes cursorFx {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(3);
+            }
+        }
+
+        .logo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+        }
+
+        /* Gradient metin için yeni sınıf */
+        .gradient-text {
+            background: linear-gradient(to right, #0ff, #f0f, #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Fare efekti için div -->
+    <div class="cursor-fx"></div>
+
+    <!-- Yeni Navigasyon -->
+    <nav class="fixed w-full bg-black bg-opacity-70 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="logo-text font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 hover:opacity-80 transition-opacity">M. B. KAYIHAN</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Hakkımda</a>
+                    <a href="#" class="nav-link active">Yetenekler</a>
+                    <a href="projects.html" class="nav-link">Projeler</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">İletişim</a>
+                </div>
+                <button class="md:hidden" id="menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobil Menü -->
+    <div class="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-lg z-40 hidden" id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="text-xl hover:text-cyan-400 transition-colors">Hakkımda</a>
+            <a href="#" class="text-xl text-cyan-400">Yetenekler</a>
+            <a href="projects.html" class="text-xl hover:text-cyan-400 transition-colors">Projeler</a>
+            <a href="blog.html" class="text-xl hover:text-cyan-400 transition-colors">Blog</a>
+            <a href="contact.html" class="text-xl hover:text-cyan-400 transition-colors">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main class="pt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col items-center justify-center">
+                <h1 class="text-4xl font-bold mb-12 gradient-text">
+                    Teknik Yetenekler
+                </h1>
+            </div>
+
+            <!-- Backend Yetenekleri -->
+            <section class="mb-16">
+                <div class="flex flex-col items-center justify-center mb-8">
+                    <h2 class="text-2xl font-semibold gradient-text">Backend Geliştirme</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">Java Ekosistemi</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>Spring Framework</li>
+                                <li>Spring Boot</li>
+                                <li>JPA / Hibernate</li>
+                                <li>RESTful API Tasarımı</li>
+                                <li>Mikroservis Mimarisi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">.NET Ekosistemi</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>ASP.NET Core</li>
+                                <li>Entity Framework</li>
+                                <li>MVC Pattern</li>
+                                <li>Razor Pages</li>
+                                <li>Blazor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">Veritabanı Teknolojileri</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>SQL Server</li>
+                                <li>PostgreSQL</li>
+                                <li>MongoDB</li>
+                                <li>Redis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mobil Geliştirme -->
+            <section class="mb-16">
+                <div class="flex flex-col items-center justify-center mb-8">
+                    <h2 class="text-2xl font-semibold gradient-text">Mobil Geliştirme</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">Android Geliştirme</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>Kotlin</li>
+                                <li>Java Android SDK</li>
+                                <li>Material Design</li>
+                                <li>Room Database</li>
+                                <li>Retrofit</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">Mobil Araçlar</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>Android Studio</li>
+                                <li>Firebase</li>
+                                <li>Google Play Console</li>
+                                <li>Mobile UI/UX</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diğer Yetenekler -->
+            <section>
+                <div class="flex flex-col items-center justify-center mb-8">
+                    <h2 class="text-2xl font-semibold gradient-text">Diğer Yetenekler</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">DevOps & Araçlar</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>Git</li>
+                                <li>Docker</li>
+                                <li>CI/CD</li>
+                                <li>Linux Sistemleri</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">Frontend Bilgisi</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>HTML5 & CSS3</li>
+                                <li>JavaScript</li>
+                                <li>Tailwind CSS</li>
+                                <li>Responsive Tasarım</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <div class="flex flex-col items-center justify-center">
+                                <h3 class="text-xl font-semibold mb-4 gradient-text">Soft Skills</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>Problem Çözme</li>
+                                <li>Takım Çalışması</li>
+                                <li>Proje Yönetimi</li>
+                                <li>Teknik Dokümantasyon</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+
+    <!-- Fare animasyonu için JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.querySelector('.cursor-fx');
+            let cursorInterval;
+
+            // Fare hareketi
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Periyodik animasyon
+            function startCursorAnimation() {
+                cursorInterval = setInterval(() => {
+                    cursor.style.animation = 'none';
+                    cursor.offsetHeight; // Reflow
+                    cursor.style.animation = 'cursorFx 2s ease-in-out';
+                }, 30000); // Her 30 saniyede bir
+            }
+
+            startCursorAnimation();
+        });
+    </script>
+</body>
+</html> 
