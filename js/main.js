@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.toggle('hidden');
         });
     }
-});
 
-// Sayfa yüklendiğinde animasyon
-window.addEventListener('load', () => {
+    // Sayfa yüklendiğinde animasyon
     document.body.classList.add('loaded');
 }); 

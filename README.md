@@ -1,6 +1,6 @@
 # Murat Bahadır KAYIHAN - Kişisel Portföy Sitesi
 
-Bu repository, kişisel portföy websitemi içermektedir. Site, GitHub Pages üzerinde [kayihan.tech](https://kayihan.tech) adresinde yayınlanmaktadır.
+Bu repository, kişisel portföy websitemi içermektedir. Site, GitHub Pages üzerinde kayihan.tech adresinde yayınlanmaktadır.
 
 ## Özellikler
 
@@ -26,26 +26,8 @@ Bu repository, kişisel portföy websitemi içermektedir. Site, GitHub Pages üz
 - Font Awesome
 - GitHub Pages
 
-## Geliştirme
-
-1. Repository'yi klonlayın:
-```bash
-git clone https://github.com/yourusername/portfolio.git
-```
-
-2. Gerekli değişiklikleri yapın
-
-3. Değişiklikleri commit edin ve push yapın:
-```bash
-git add .
-git commit -m "Değişiklikler açıklaması"
-git push origin main
-```
-
-## Deployment
-
-Site, `main` branch'e yapılan her push işleminden sonra otomatik olarak GitHub Pages'e deploy edilir.
-
 ## Lisans
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için LICENSE dosyasına bakın.
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın. 
+---
+© 2024 Murat Bahadır KAYIHAN. Tüm hakları saklıdır. 

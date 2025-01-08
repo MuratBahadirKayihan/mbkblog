@@ -176,7 +176,6 @@ body {
     z-index: 9999;
     opacity: 0;
     mix-blend-mode: screen;
-    animation: cursorFx 25s infinite;
     transition: opacity 0.3s ease;
 }
 
@@ -189,6 +188,10 @@ body {
         opacity: 1;
         transform: scale(3);
     }
+}
+
+.cursor-fx.active {
+    opacity: 1;
 }
 
 /* Blog yazıları için prose stilleri */
