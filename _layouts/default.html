@@ -71,13 +71,13 @@
     <nav class="fixed w-full bg-black bg-opacity-70 backdrop-blur-md z-50 border-b border-gray-800">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="{{ '/' | relative_url }}" class="logo-text">M.B. KAYIHAN</a>
+                <a href="/" class="logo-text">M.B. KAYIHAN</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="{{ '/' | relative_url }}#about" class="nav-link {% if page.url == '/' %}active{% endif %}">Hakkımda</a>
-                    <a href="{{ '/skills' | relative_url }}" class="nav-link {% if page.url == '/skills' %}active{% endif %}">Yetenekler</a>
-                    <a href="{{ '/projects' | relative_url }}" class="nav-link {% if page.url == '/projects' %}active{% endif %}">Projeler</a>
-                    <a href="{{ '/blog' | relative_url }}" class="nav-link {% if page.url == '/blog' %}active{% endif %}">Blog</a>
-                    <a href="{{ '/contact' | relative_url }}" class="nav-link {% if page.url == '/contact' %}active{% endif %}">İletişim</a>
+                    <a href="/" class="nav-link {% if page.url == '/' %}active{% endif %}">Hakkımda</a>
+                    <a href="/yetenekler" class="nav-link {% if page.url == '/yetenekler' %}active{% endif %}">Yetenekler</a>
+                    <a href="/projeler" class="nav-link {% if page.url == '/projeler' %}active{% endif %}">Projeler</a>
+                    <a href="/blog" class="nav-link {% if page.url == '/blog' %}active{% endif %}">Blog</a>
+                    <a href="/iletisim" class="nav-link {% if page.url == '/iletisim' %}active{% endif %}">İletişim</a>
                 </div>
                 <button class="md:hidden" id="menu-button">
                     <i class="fas fa-bars text-2xl"></i>
@@ -89,11 +89,11 @@
     <!-- Mobil Menü -->
     <div class="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-lg z-40 hidden" id="mobile-menu">
         <div class="flex flex-col items-center justify-center h-full space-y-8">
-            <a href="{{ '/' | relative_url }}#about" class="text-xl hover:text-cyan-400 transition-colors">Hakkımda</a>
-            <a href="{{ '/skills' | relative_url }}" class="text-xl hover:text-cyan-400 transition-colors">Yetenekler</a>
-            <a href="{{ '/projects' | relative_url }}" class="text-xl hover:text-cyan-400 transition-colors">Projeler</a>
-            <a href="{{ '/blog' | relative_url }}" class="text-xl hover:text-cyan-400 transition-colors">Blog</a>
-            <a href="{{ '/contact' | relative_url }}" class="text-xl hover:text-cyan-400 transition-colors">İletişim</a>
+            <a href="/" class="text-xl hover:text-cyan-400 transition-colors">Hakkımda</a>
+            <a href="/yetenekler" class="text-xl hover:text-cyan-400 transition-colors">Yetenekler</a>
+            <a href="/projeler" class="text-xl hover:text-cyan-400 transition-colors">Projeler</a>
+            <a href="/blog" class="text-xl hover:text-cyan-400 transition-colors">Blog</a>
+            <a href="/iletisim" class="text-xl hover:text-cyan-400 transition-colors">İletişim</a>
         </div>
     </div>
 
