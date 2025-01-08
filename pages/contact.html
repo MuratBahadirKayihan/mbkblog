@@ -1,0 +1,76 @@
+---
+layout: default
+title: İletişim
+permalink: /contact/
+---
+
+<div class="container mx-auto px-6 py-32">
+    <h1 class="text-4xl font-bold mb-16 text-center">
+        <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(
+            180deg,
+            #a3a3a3 0%,
+            #64dfdf 100%
+        ); -webkit-background-clip: text;">İletişim</span>
+    </h1>
+    
+    <div class="max-w-2xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Sosyal Medya Linkleri -->
+            <div class="gradient-border">
+                <div class="p-6 rounded-lg skill-card">
+                    <h3 class="text-xl font-bold mb-6 gradient-text">Sosyal Medya</h3>
+                    <div class="space-y-4">
+                        <a href="https://github.com/MuratBahadirKayihan" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
+                            <i class="fab fa-github text-2xl w-8"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/murat-bahad%C4%B1r-kayihan-058841186/" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
+                            <i class="fab fa-linkedin text-2xl w-8"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://x.com/mbkayihan" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
+                            <i class="fab fa-x-twitter text-2xl w-8"></i>
+                            <span>X (Twitter)</span>
+                        </a>
+                        <a href="https://www.instagram.com/muratbahadirkayihan/" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
+                            <i class="fab fa-instagram text-2xl w-8"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="mailto:muratbahadirkayihan@gmail.com" class="flex items-center text-gray-300 hover:text-cyan-400 transition-colors">
+                            <i class="fas fa-envelope text-2xl w-8"></i>
+                            <span>E-posta</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İletişim Formu -->
+            <div class="gradient-border">
+                <div class="p-6 rounded-lg skill-card">
+                    <h3 class="text-xl font-bold mb-6 gradient-text">Mesaj Gönder</h3>
+                    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">İsim</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-300 focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">E-posta</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-300 focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Mesaj</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-300 focus:outline-none focus:border-cyan-400"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-cyan-400 to-fuchsia-500 text-white font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity">
+                            Gönder
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

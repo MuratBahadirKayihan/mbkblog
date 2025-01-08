@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeler | Murat Bahadır KAYIHAN</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .gradient-border {
+            position: relative;
+            border-radius: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            animation: neonFlicker 2s infinite;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Kıvılcım efekti için */
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #0ff;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 4px #0ff,
+                0 0 8px #0ff,
+                0 0 12px #f0f;
+            opacity: 0;
+            filter: blur(1px);
+            transform: translateX(-50%);
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 0.9;
+                box-shadow: 
+                    0 0 5px #0ff,
+                    0 0 10px #0ff,
+                    0 0 20px #f0f;
+            }
+            20%, 22%, 24%, 55% {
+                opacity: 0.5;
+                box-shadow: none;
+            }
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-50%) scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .filter-button {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-button:hover {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .filter-button.active {
+            background: linear-gradient(90deg, #0ff, #f0f);
+            border: none;
+        }
+
+        /* Arka plan için gradient */
+        body {
+            background: linear-gradient(to bottom right, #000000, #1a1a1a);
+            min-height: 100vh;
+        }
+
+        /* Sayfa içeriği için hafif bir glow efekti */
+        .container {
+            position: relative;
+        }
+        .container::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Proje kartlarındaki resimler için overlay */
+        .project-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .project-image-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image-container img {
+            transform: scale(1.05);
+        }
+
+        /* Navbar için yeni stiller */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0ff, #f0f);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Fare animasyonu için stiller */
+        .cursor-fx {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            mix-blend-mode: screen;
+            animation: cursorFx 25s infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes cursorFx {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(3);
+            }
+        }
+
+        .logo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+        }
+
+        /* Gradient metin için yeni sınıf */
+        .gradient-text {
+            background: linear-gradient(to right, #0ff, #f0f, #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100">
+    <!-- Fare efekti için div -->
+    <div class="cursor-fx"></div>
+
+    <!-- Yeni Navigasyon -->
+    <nav class="fixed w-full bg-black bg-opacity-70 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="logo-text font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 hover:opacity-80 transition-opacity">M. B. KAYIHAN</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Hakkımda</a>
+                    <a href="skills.html" class="nav-link">Yetenekler</a>
+                    <a href="#" class="nav-link active">Projeler</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">İletişim</a>
+                </div>
+                <button class="md:hidden" id="menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobil Menü -->
+    <div class="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-lg z-40 hidden" id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="text-xl hover:text-cyan-400 transition-colors">Hakkımda</a>
+            <a href="skills.html" class="text-xl hover:text-cyan-400 transition-colors">Yetenekler</a>
+            <a href="#" class="text-xl text-cyan-400">Projeler</a>
+            <a href="blog.html" class="text-xl hover:text-cyan-400 transition-colors">Blog</a>
+            <a href="contact.html" class="text-xl hover:text-cyan-400 transition-colors">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Ana İçerik -->
+    <main class="pt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col items-center justify-center">
+                <h1 class="text-4xl font-bold mb-12 gradient-text">
+                    Projelerim
+                </h1>
+            </div>
+
+            <!-- Proje Filtreleme -->
+            <div class="flex justify-center mb-8 space-x-4">
+                <button class="filter-button px-4 py-2 rounded-lg transition-colors active" data-filter="all">
+                    Tümü
+                </button>
+                <button class="filter-button px-4 py-2 rounded-lg transition-colors" data-filter="mobile">
+                    Mobil
+                </button>
+                <button class="filter-button px-4 py-2 rounded-lg transition-colors" data-filter="web">
+                    Web
+                </button>
+                <button class="filter-button px-4 py-2 rounded-lg transition-colors" data-filter="backend">
+                    Backend
+                </button>
+            </div>
+
+            <!-- Projeler Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Örnek Proje Kartı 1 -->
+                <div class="gradient-border" data-category="mobile">
+                    <div class="rounded-lg overflow-hidden project-card">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x250" alt="Proje 1" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 gradient-text">Android Uygulama</h3>
+                            <p class="text-gray-300 mb-4">
+                                Kotlin ile geliştirilmiş, modern Material Design kullanan bir Android uygulaması.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent hover:opacity-80">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent hover:opacity-80">
+                                    <i class="fas fa-external-link-alt"></i> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Örnek Proje Kartı 2 -->
+                <div class="gradient-border" data-category="web">
+                    <div class="rounded-lg overflow-hidden project-card">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x250" alt="Proje 2" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 gradient-text">Web Uygulaması</h3>
+                            <p class="text-gray-300 mb-4">
+                                ASP.NET Core ve Blazor kullanılarak geliştirilmiş modern web uygulaması.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 hover:opacity-80">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 hover:opacity-80">
+                                    <i class="fas fa-external-link-alt"></i> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Örnek Proje Kartı 3 -->
+                <div class="gradient-border" data-category="backend">
+                    <div class="rounded-lg overflow-hidden project-card">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x250" alt="Proje 3" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 gradient-text">Mikroservis Projesi</h3>
+                            <p class="text-gray-300 mb-4">
+                                Spring Boot ile geliştirilmiş, Docker konteynerlerinde çalışan mikroservis uygulaması.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 hover:opacity-80">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 hover:opacity-80">
+                                    <i class="fas fa-external-link-alt"></i> Dokümantasyon
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Proje filtreleme işlevselliği
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const projectCards = document.querySelectorAll('[data-category]');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Aktif buton stilini güncelle
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Projeleri filtrele
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.querySelector('.cursor-fx');
+            let cursorInterval;
+
+            // Fare hareketi
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Periyodik animasyon
+            function startCursorAnimation() {
+                cursorInterval = setInterval(() => {
+                    cursor.style.animation = 'none';
+                    cursor.offsetHeight; // Reflow
+                    cursor.style.animation = 'cursorFx 2s ease-in-out';
+                }, 30000); // Her 30 saniyede bir
+            }
+
+            startCursorAnimation();
+        });
+    </script>
+</body>
+</html> 

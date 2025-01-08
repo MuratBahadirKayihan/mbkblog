@@ -1,0 +1,114 @@
+---
+layout: default
+title: Anasayfa
+---
+
+<div class="min-h-screen flex flex-col items-center justify-center">
+    <div class="text-center">
+        <style>
+            @keyframes softGradientAnimation {
+                0%, 100% {
+                    background-image: linear-gradient(
+                        135deg,
+                        #0f3333 0%,
+                        #1a5959 35%,
+                        #2d8080 100%
+                    );
+                }
+                50% {
+                    background-image: linear-gradient(
+                        135deg,
+                        #80ced7 0%,
+                        #9f9fed 35%,
+                        #edb5d1 100%
+                    );
+                }
+            }
+
+            .animated-gradient {
+                animation: softGradientAnimation 12s ease-in-out infinite;
+                animation-delay: 8s;
+                filter: drop-shadow(0 0 8px rgba(192, 192, 192, 0.3));
+            }
+
+            .name-glow {
+                text-shadow: 
+                    0 0 10px rgba(192, 192, 192, 0.1),
+                    0 0 15px rgba(192, 192, 192, 0.05),
+                    2px 2px 4px rgba(7, 28, 28, 0.2);
+            }
+        </style>
+
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            <span class="text-transparent bg-clip-text name-glow" style="background-image: linear-gradient(
+                180deg,
+                #a3a3a3 0%,
+                #64dfdf 100%
+            ); -webkit-background-clip: text;">Murat Bahadır KAYIHAN</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-400">Backend ve Mobil Geliştirici</p>
+        <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto px-4">
+            Backend ve mobil geliştirme konusunda uzmanlaşmış bir yazılım geliştiricisiyim.
+        </p>
+
+        <div class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 text-center">
+                <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(
+                    to right,
+                    #64dfdf,
+                    #a991f7,
+                    #f8b4d9
+                ); -webkit-background-clip: text;">Hakim Olduğum Teknolojiler</span>
+            </h2>
+
+            <div class="max-w-6xl mx-auto px-4">
+                <!-- Üst Sıra - 3 Kart -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <!-- Programlama Dilleri -->
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <h3 class="text-xl font-bold mb-4 text-cyan-400">Programlama Dilleri</h3>
+                            <p class="text-gray-300">Java, Kotlin, Python, C#</p>
+                        </div>
+                    </div>
+
+                    <!-- Frameworkler -->
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <h3 class="text-xl font-bold mb-4 text-cyan-400">Frameworkler</h3>
+                            <p class="text-gray-300">Spring, Spring Boot, ASP.NET Core, Entity Framework, MVC, Mikroservis Mimarisi</p>
+                        </div>
+                    </div>
+
+                    <!-- Frontend Bilgisi -->
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <h3 class="text-xl font-bold mb-4 text-cyan-400">Frontend Bilgisi</h3>
+                            <p class="text-gray-300">HTML, CSS, JavaScript, Tailwind</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alt Sıra - 2 Kart (Ortalanmış) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Veritabanı Teknolojileri -->
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <h3 class="text-xl font-bold mb-4 text-cyan-400">Veritabanı Teknolojileri</h3>
+                            <p class="text-gray-300">SQL Server, PostgreSQL, MongoDB, Redis</p>
+                            <p class="text-gray-300 mt-2">Kompleks SQL Sorguları, Stored Procedures, Triggers</p>
+                        </div>
+                    </div>
+
+                    <!-- İşletim Sistemi & Shell -->
+                    <div class="gradient-border">
+                        <div class="p-6 rounded-lg skill-card">
+                            <h3 class="text-xl font-bold mb-4 text-cyan-400">İşletim Sistemi & Shell</h3>
+                            <p class="text-gray-300">Linux (Arch, Debian), Unix, Windows | Bash, Zsh, Fish, PowerShell</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

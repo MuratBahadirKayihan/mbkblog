@@ -1,0 +1,257 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<div class="min-h-screen flex flex-col items-center justify-center py-32">
+    <div class="text-center">
+        <h1 class="text-5xl font-bold mb-16">
+            <span class="gradient-text">Blog Yazılarım</span>
+        </h1>
+
+        <!-- Arama ve Filtreleme -->
+        <div class="max-w-6xl mx-auto mb-12 px-4">
+            <!-- Arama Kutusu -->
+            <div class="relative mb-8">
+                <input type="text" id="searchInput" 
+                       placeholder="Blog yazılarında ara..." 
+                       class="w-full px-12 py-3 rounded-lg bg-gray-800/50 border border-gray-700 text-gray-300 focus:outline-none focus:border-cyan-400 backdrop-blur-sm">
+                <svg class="w-6 h-6 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+
+            <!-- Kategori Butonları -->
+            <div class="flex flex-wrap gap-3 justify-center mb-8">
+                <button class="category-btn active" data-category="all">
+                    Tümü
+                </button>
+                {% assign categories = site.posts | map: "categories" | flatten | uniq %}
+                {% for category in categories %}
+                <button class="category-btn" data-category="{{ category }}">
+                    {{ category }}
+                </button>
+                {% endfor %}
+            </div>
+
+            <!-- Aktif Filtreler -->
+            <div id="activeFilters" class="flex flex-wrap gap-2 justify-center mb-8 hidden">
+                <span class="text-gray-400">Aktif Filtreler:</span>
+                <div id="activeFilterTags" class="flex flex-wrap gap-2">
+                    <!-- JavaScript ile doldurulacak -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Blog Yazıları -->
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-4">
+            {% for post in site.posts %}
+            <article class="gradient-border blog-post" data-categories="{{ post.categories | join: ',' }}">
+                <div class="p-6 rounded-lg skill-card h-full">
+                    <h2 class="text-xl font-bold mb-4">
+                        <a href="{{ post.url | relative_url }}" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                            {{ post.title }}
+                        </a>
+                    </h2>
+                    <div class="text-gray-400 text-sm mb-4">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                            {{ post.date | date: "%d %B %Y" }}
+                        </time>
+                    </div>
+                    {% if post.description %}
+                    <p class="text-gray-300 mb-4">{{ post.description }}</p>
+                    {% endif %}
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        {% for category in post.categories %}
+                        <span class="text-sm bg-gray-800/50 backdrop-blur-sm rounded-full px-3 py-1 text-gray-300">
+                            #{{ category }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <!-- Sayfalama -->
+        {% if paginator.total_pages > 1 %}
+        <div class="flex justify-center space-x-4 mt-12">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | relative_url }}" 
+               class="text-cyan-400 hover:text-cyan-300 transition-colors">← Önceki</a>
+            {% endif %}
+
+            {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | relative_url }}" 
+               class="text-cyan-400 hover:text-cyan-300 transition-colors">Sonraki →</a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- Sonuç Bulunamadı Mesajı -->
+        <div id="noResults" class="hidden text-gray-400 mt-12">
+            Arama kriterlerinize uygun blog yazısı bulunamadı.
+        </div>
+    </div>
+</div>
+
+<style>
+.category-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.category-btn:hover {
+    border-color: #0ff;
+    color: #0ff;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: linear-gradient(90deg, #0ff, #f0f);
+    border: none;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(0, 255, 255, 0.1);
+    color: #0ff;
+    font-size: 0.875rem;
+    backdrop-filter: blur(10px);
+}
+
+.filter-tag button {
+    color: #f0f;
+    transition: color 0.2s ease;
+}
+
+.filter-tag button:hover {
+    color: #ff8c00;
+}
+
+.blog-post {
+    transition: all 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.blog-post .skill-card {
+    display: flex;
+    flex-direction: column;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const blogPosts = document.querySelectorAll('.blog-post');
+    const activeFilters = document.getElementById('activeFilters');
+    const activeFilterTags = document.getElementById('activeFilterTags');
+    const noResults = document.getElementById('noResults');
+
+    let currentCategory = 'all';
+    let currentSearch = '';
+
+    function updateActiveFilters() {
+        const filters = [];
+        
+        if (currentSearch) {
+            filters.push(`
+                <div class="filter-tag">
+                    <span>Arama: ${currentSearch}</span>
+                    <button onclick="clearSearch()">×</button>
+                </div>
+            `);
+        }
+        
+        if (currentCategory && currentCategory !== 'all') {
+            filters.push(`
+                <div class="filter-tag">
+                    <span>Kategori: ${currentCategory}</span>
+                    <button onclick="clearCategory()">×</button>
+                </div>
+            `);
+        }
+
+        if (filters.length > 0) {
+            activeFilterTags.innerHTML = filters.join('');
+            activeFilters.classList.remove('hidden');
+        } else {
+            activeFilters.classList.add('hidden');
+        }
+    }
+
+    function filterPosts() {
+        const searchTerm = currentSearch.toLowerCase();
+        const selectedCategory = currentCategory.toLowerCase();
+        let visiblePosts = 0;
+
+        blogPosts.forEach(post => {
+            const title = post.querySelector('h2').textContent.toLowerCase();
+            const description = post.querySelector('p')?.textContent.toLowerCase() || '';
+            const categories = post.dataset.categories.toLowerCase();
+
+            const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm);
+            const matchesCategory = selectedCategory === 'all' || categories.includes(selectedCategory);
+
+            if (matchesSearch && matchesCategory) {
+                post.style.display = '';
+                visiblePosts++;
+            } else {
+                post.style.display = 'none';
+            }
+        });
+
+        noResults.classList.toggle('hidden', visiblePosts > 0);
+        updateActiveFilters();
+    }
+
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value;
+        filterPosts();
+    });
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCategory = btn.dataset.category;
+            filterPosts();
+        });
+    });
+
+    // Global fonksiyonlar
+    window.clearSearch = function() {
+        searchInput.value = '';
+        currentSearch = '';
+        filterPosts();
+    }
+
+    window.clearCategory = function() {
+        categoryBtns.forEach(btn => {
+            if (btn.dataset.category === 'all') {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        currentCategory = 'all';
+        filterPosts();
+    }
+});
+</script> 
