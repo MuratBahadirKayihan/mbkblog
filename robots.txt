@@ -1,0 +1,7 @@
+# www.robotstxt.org/
+# Tüm robotlara izin ver
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mbkayihan.github.io/sitemap.xml 
