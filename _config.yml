@@ -27,6 +27,9 @@ baseurl: ""
 url: "https://mbkayihan.github.io"
 author: Murat Bahadır KAYIHAN
 
+# Show future dated posts
+future: true
+
 # SEO settings
 twitter:
   username: mbkayihan

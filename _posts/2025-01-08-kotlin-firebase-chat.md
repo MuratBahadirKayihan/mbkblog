@@ -1,9 +1,16 @@
 ---
 layout: post
-title: "Kotlin ve Firebase ile Modern Bir Mesajlaşma Uygulaması"
-date: 2024-01-08
-categories: [Mobile, Android, Kotlin, Firebase, Real-time Database]
-description: "Kotlin ve Firebase kullanarak gerçek zamanlı mesajlaşma uygulaması nasıl geliştirilir? Material Design 3, MVVM mimarisi ve Jetpack Compose ile modern bir Android uygulaması geliştirmeyi öğrenelim."
+title: "Kotlin ve Firebase ile Real-time Chat Uygulaması"
+date: 2025-01-08 14:00:00 +0300
+categories: mobile android kotlin firebase real-time-database
+description: "Kotlin ve Firebase kullanarak modern bir real-time chat uygulaması nasıl geliştirilir? Adım adım rehber."
+author: Murat Bahadır KAYIHAN
+tags:
+  - Mobile
+  - Android
+  - Kotlin
+  - Firebase
+  - Real-time Database
 ---
 
 Modern bir Android mesajlaşma uygulaması geliştirmek istiyorsanız, doğru yerdesiniz! Bu yazıda Kotlin ve Firebase kullanarak gerçek zamanlı bir mesajlaşma uygulaması geliştireceğiz. Material Design 3, MVVM mimarisi ve Jetpack Compose kullanarak modern ve ölçeklenebilir bir uygulama ortaya çıkaracağız.
