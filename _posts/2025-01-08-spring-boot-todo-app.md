@@ -1,9 +1,16 @@
 ---
 layout: post
 title: "Spring Boot ile Modern Bir Todo Uygulaması Geliştirme"
-date: 2024-01-08
-categories: [Backend, Java, Spring Boot, REST API, PostgreSQL]
+date: 2025-01-08 18:00:00 +0300
+categories: backend java spring-boot rest-api postgresql
 description: "Spring Boot kullanarak modern bir Todo uygulaması nasıl geliştirilir? JWT authentication, PostgreSQL veritabanı ve Docker container kullanımını adım adım öğrenelim."
+author: Murat Bahadır KAYIHAN
+tags:
+  - Backend
+  - Java
+  - Spring Boot
+  - REST API
+  - PostgreSQL
 ---
 
 Modern bir backend uygulaması geliştirmek istiyorsanız, doğru yerdesiniz! Bu yazıda Spring Boot framework'ü kullanarak tam teşekküllü bir Todo uygulaması geliştireceğiz. Projemizde JWT tabanlı kimlik doğrulama, PostgreSQL veritabanı ve Docker container kullanacağız.

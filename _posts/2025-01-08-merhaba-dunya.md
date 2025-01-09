@@ -1,9 +1,14 @@
 ---
 layout: post
 title: "Merhaba Dünya!"
-date: 2024-01-08
-categories: [Genel, Backend, Java]
+date: 2025-01-08 16:00:00 +0300
+categories: genel backend java
 description: "Blog serüvenime hoş geldiniz! Bu yazıda kendimi tanıtacak ve blog'umda neler paylaşacağımdan bahsedeceğim."
+author: Murat Bahadır KAYIHAN
+tags:
+  - Genel
+  - Backend
+  - Java
 ---
 
 Merhaba, ben Murat Bahadır KAYIHAN! 

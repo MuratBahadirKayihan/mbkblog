@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring Security ile Yetkilendirme (Authorization)"
-date: 2024-01-09 20:00:00 +0300
+date: 2025-01-09 20:00:00 +0300
 categories: spring security authorization
 description: "Spring Security'nin yetkilendirme (authorization) özelliklerini detaylı bir şekilde incelediğimiz bu yazıda, global güvenlik yapılandırması, metod seviyesi güvenlik ve expression-based access control konularını ele alıyoruz."
 author: Murat Bahadır KAYIHAN

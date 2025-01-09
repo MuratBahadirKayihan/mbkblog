@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "Yapay Zeka ve Makine Öğrenmesi Projelerinde Kullanılan Modern Araçlar"
-date: 2024-01-08
-categories: [Yapay Zeka, Makine Öğrenmesi, Deep Learning, MLOps]
-description: "Yapay zeka ve makine öğrenmesi projelerinde kullanılan modern araçları, kütüphaneleri ve en iyi uygulamaları keşfedin."
+title: "AI ML Tools"
+date: 2025-01-08 13:00:00 +0300
+categories: yapay-zeka makine-ogrenmesi deep-learning mlops
+description: "Yapay zeka ve makine öğrenmesi araçlarının detaylı incelemesi ve kullanım örnekleri."
+author: Murat Bahadır KAYIHAN
+tags:
+  - Yapay Zeka
+  - Makine Öğrenmesi
+  - Deep Learning
+  - MLOps
 ---
 
 Yapay zeka ve makine öğrenmesi alanında çalışmak isteyenler için güncel araçları ve teknolojileri derledim. Bu yazıda, veri bilimi ve yapay zeka projelerinde kullanabileceğiniz modern araçları inceleyeceğiz.

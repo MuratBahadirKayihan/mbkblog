@@ -1,9 +1,15 @@
 ---
 layout: post
 title: "Modern Yapay Zeka Araçları ve Cursor AI ile Geliştirme Deneyimi"
-date: 2024-01-08
-categories: [Yapay Zeka, AI Tools, Software Development, Cursor AI]
-description: "Modern yapay zeka araçlarının yazılım geliştirme süreçlerine etkisi ve Cursor AI ile geliştirici deneyimini nasıl iyileştirebileceğinizi keşfedin."
+date: 2025-01-08 15:00:00 +0300
+categories: yapay-zeka ai-tools software-development cursor-ai
+description: "Modern yapay zeka araçlarının yazılım geliştirme süreçlerine etkisi ve Cursor AI ile geliştirici deneyimini nasıl iyileştirebileceğimizi keşfedin."
+author: Murat Bahadır KAYIHAN
+tags:
+  - Yapay Zeka
+  - AI Tools
+  - Software Development
+  - Cursor AI
 ---
 
 Yapay zeka teknolojileri, yazılım geliştirme dünyasını hızla değiştiriyor. Bu yazıda, modern AI araçlarının geliştirme süreçlerine etkisini ve özellikle Cursor AI'ın sunduğu yenilikleri inceleyeceğiz.

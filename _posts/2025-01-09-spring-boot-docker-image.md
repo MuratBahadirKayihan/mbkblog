@@ -1,8 +1,14 @@
 ---
 layout: post
 title: "Spring Boot Projesi için Docker Image Oluşturma - Dockerfile Rehberi"
-date: 2024-01-09
-categories: [Docker, Spring Boot, DevOps]
+date: 2025-01-09 19:00:00 +0300
+categories: docker spring-boot devops
+description: "Spring Boot uygulamanızı Docker container'da çalıştırmak için adım adım Dockerfile oluşturma ve image build etme rehberi."
+author: Murat Bahadır KAYIHAN
+tags:
+  - Docker
+  - Spring Boot
+  - DevOps
 ---
 
 Spring Boot uygulamalarını Docker konteynerlerinde çalıştırmak, modern yazılım geliştirme ve dağıtım süreçlerinin önemli bir parçası haline geldi. Bu yazıda, bir Spring Boot uygulaması için Docker imajı oluşturma sürecini adım adım inceleyeceğiz.
