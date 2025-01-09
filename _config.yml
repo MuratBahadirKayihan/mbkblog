@@ -19,9 +19,27 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Murat Bahadır KAYIHAN
-description: Backend ve Mobil Geliştirici
+email: mbkayihan@gmail.com
+description: >-
+  Backend ve Mobil Geliştirici. Spring Boot, Kotlin, Android ve iOS uygulama geliştirme üzerine yazılar.
+  Yazılım geliştirme, teknoloji ve kişisel deneyimlerimi paylaşıyorum.
 baseurl: ""
-url: ""
+url: "https://mbkayihan.github.io"
+author: Murat Bahadır KAYIHAN
+
+# SEO settings
+twitter:
+  username: mbkayihan
+  card: summary_large_image
+social:
+  name: Murat Bahadır KAYIHAN
+  links:
+    - https://twitter.com/mbkayihan
+    - https://www.linkedin.com/in/mbkayihan
+    - https://github.com/mbkayihan
+
+# Google Analytics
+google_analytics: UA-XXXXXXXX-X
 
 # Build settings
 markdown: kramdown
@@ -42,6 +60,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Pagination
 paginate: 5
