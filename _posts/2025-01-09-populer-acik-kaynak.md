@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Hayatımızı Kolaylaştıran 3 Büyük Açık Kaynak Proje"
-date: 2025-01-09 12:00:00 +0300
+title: "Popüler Açık Kaynak Projeleri"
+date: 2025-01-09
 categories: yazilim opensource teknoloji
 description: "Günlük hayatımızda sıkça kullandığımız ve yaşamımızı kolaylaştıran üç önemli açık kaynak projenin detaylı incelemesi."
 author: Murat Bahadır KAYIHAN
