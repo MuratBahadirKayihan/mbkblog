@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Monolitik ve Mikroservis Mimarileri: Bir Sunucuda Birden Fazla Uygulama Çalıştırma"
-date: 2024-01-14
+date: 2025-01-14
 categories: [Yazılım Mimarisi, Spring Boot, Mikroservisler]
 tags: [spring boot, mikroservis, monolitik, java, sistem tasarımı]
 description: "Modern yazılım geliştirmede monolitik ve mikroservis mimarilerinin detaylı karşılaştırması, avantajları, dezavantajları ve gerçek dünya uygulamaları."
