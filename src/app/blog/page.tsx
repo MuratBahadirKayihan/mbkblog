@@ -20,54 +20,36 @@ export default function BlogPage() {
                     </header>
 
                     {allPosts.length === 0 ? (
-                        <div className="text-center py-10 border border-slate-800 rounded-2xl bg-slate-900/50">
-                            <p className="text-slate-400">Henüz hiç yazı eklenmemiş.</p>
+                        <div className="text-center py-10 border border-slate-800 rounded-sm bg-slate-900/50">
+                            <p className="text-slate-400 font-mono text-sm">/var/log/posts: empty</p>
                         </div>
                     ) : (
-                        <div className="grid gap-6 md:grid-cols-2">
+                        <div className="flex flex-col border-t border-white/10">
                             {allPosts.map((post) => (
-                                <Link key={post.slug} href={`/blog/${post.slug}`} className="group relative block h-full">
-                                    <div className="relative h-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:border-slate-700 hover:bg-slate-900 hover:shadow-2xl flex flex-col">
-
-                                        {/* Optional Image Area - Only render if image exists */}
-                                        {post.image ? (
-                                            <div className="mb-4 h-48 w-full overflow-hidden rounded-xl bg-slate-800">
-                                                {/* Since we are using static export mainly, simple img tag or Next Image with unoptimized is fine. */}
-                                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                                            </div>
-                                        ) : (
-                                            // Fallback gradient if no image is provided, to keep the grid nice
-                                            <div className="mb-4 h-48 w-full rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-                                                <span className="text-4xl opacity-20">📝</span>
-                                            </div>
-                                        )}
-
-                                        <div className="flex flex-col flex-grow">
-                                            <div className="flex items-center gap-3 text-xs text-slate-500 mb-3">
-                                                <span className="flex items-center gap-1">
-                                                    <Calendar className="w-3 h-3" />
-                                                    {post.date}
-                                                </span>
-                                                {post.tags && post.tags.length > 0 && (
-                                                    <span className="flex items-center gap-1">
-                                                        <Tag className="w-3 h-3" />
-                                                        {post.tags[0]}
-                                                    </span>
-                                                )}
-                                            </div>
-
-                                            <h2 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-blue-400 transition-colors">
+                                <Link key={post.slug} href={`/blog/${post.slug}`} className="group relative block py-6 border-b border-white/10 hover:bg-white/5 transition-colors px-4 -mx-4">
+                                    <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 md:gap-8">
+                                        <div className="flex-1">
+                                            <h2 className="text-lg font-bold text-slate-200 group-hover:text-cyan-400 transition-colors font-mono tracking-tight">
                                                 {post.title}
                                             </h2>
-
-                                            <p className="text-slate-400 text-sm line-clamp-3 mb-4 flex-grow">
+                                            <p className="text-slate-500 text-sm mt-1 line-clamp-1">
                                                 {post.excerpt}
                                             </p>
+                                        </div>
 
-                                            <div className="flex items-center text-blue-400 text-sm font-medium mt-auto group-hover:translate-x-1 transition-transform">
-                                                Devamını Oku <ArrowRight className="w-4 h-4 ml-1" />
-                                            </div>
+                                        <div className="flex items-center gap-6 text-xs text-slate-500 font-mono shrink-0">
+                                            <span className="flex items-center gap-2 min-w-[100px]">
+                                                {post.date}
+                                            </span>
+                                            {post.tags && post.tags.length > 0 && (
+                                                <span className="hidden md:flex items-center gap-1 text-slate-600">
+                                                    <span className="text-cyan-500/50">#</span>
+                                                    {post.tags[0]}
+                                                </span>
+                                            )}
+                                            <span className="group-hover:translate-x-1 transition-transform text-slate-600 group-hover:text-cyan-400">
+                                                {"->"}
+                                            </span>
                                         </div>
                                     </div>
                                 </Link>

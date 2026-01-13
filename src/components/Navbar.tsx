@@ -37,12 +37,13 @@ export const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
+                    {/* Logo - Live Terminal Identity */}
                     <Link
                         href="/"
-                        className="text-lg font-bold text-white tracking-tight hover:text-primary transition-colors"
+                        className="group flex items-center gap-0.5 text-lg font-bold text-white tracking-tight hover:text-white transition-colors font-mono"
                     >
-                        kayihan.dev
+                        <span>kayihan.dev</span>
+                        <span className="text-primary/70 animate-blink group-hover:animate-none group-hover:opacity-100 transition-all">_</span>
                     </Link>
 
                     {/* Desktop Navigation */}
